@@ -1,13 +1,12 @@
 const landingPage = document.querySelector(".landing-page");
-let randomize = true;
 
 // Get array of images
 let imgsArray = [
-  "../images/1.jpg",
-  "../images/2.jpg",
-  "../images/3.jpg",
-  "../images/4.jpg",
-  "../images/5.png",
+  "./images/slide01.jpg",
+  "./images/slide02.jpg",
+  "./images/slide03.jpg",
+  "./images/slide04.jpg",
+  "./images/slide05.jpg",
 ];
 
 // Function to set random image as background
@@ -30,7 +29,7 @@ function setRandomImage() {
   // }
 }
 
-setRandomImage()
+setRandomImage();
 
 // Change background image url
 setInterval(setRandomImage, 10000);
