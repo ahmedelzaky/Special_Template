@@ -7,12 +7,33 @@ body {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
   box-sizing: border-box;
 }
 .active {
   color: var(--main-color);
 }
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
 /* Start Landing Page */
 .landing-page {
   min-height: 100vh;
@@ -46,6 +67,9 @@ header::after {
   bottom: 0;
   height: 1px;
   width: calc(100%);
+}
+header .menu {
+  display: none;
 }
 header ul {
   display: flex;
@@ -86,4 +110,32 @@ header ul li a:hover {
 .landing-page .intro span {
   color: var(--main-color);
 }
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px 0;
+  }
+  header ul {
+    display: none;
+  }
+  header .logo {
+    font-size: 16px;
+  }
+  header .menu {
+    display: block;
+    font-size: 30px;
+    transition: 0.5s;
+  }
+  header .menu:hover {
+    color: var(--main-color);
+  }
+  .landing-page .intro {
+    text-align: center;
+    width: 80%;
+  }
+  .landing-page .intro h1 {
+    font-size: 30px;
+  }
+}
+
 /* End Landing Page */
