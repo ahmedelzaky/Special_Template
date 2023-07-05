@@ -1,12 +1,28 @@
-//Settings
+//check if there is color in local storage
+const colorsList = document.querySelectorAll(".colors-list li");
 
-let settingsBox = document.querySelector(".settings-box");
-let gearBox = document.querySelector(".gear-box");
+let mainColor = localStorage.getItem("color_option");
+
+if (mainColor != null) {
+  document.documentElement.style.setProperty("--main-color", `${mainColor}`);
+
+  // active the main color icon
+  colorsList.forEach((e) => {
+    e.classList.remove("active");
+
+    if (e.dataset.color == mainColor) {
+      e.classList.add("active");
+    }
+  });
+}
+
+//Settings
+const settingsBox = document.querySelector(".settings-box");
+const gearBox = document.querySelector(".gear-box");
 let isOpne = false;
 
 //show and hide settings menu
 gearBox.addEventListener("click", (e) => {
-  let gear = document.querySelector(".gear");
   if (!isOpne) {
     settingsBox.style.left = 0;
     gearBox.style.left = "200px";
@@ -17,8 +33,26 @@ gearBox.addEventListener("click", (e) => {
   //toggle open statue
   isOpne = !isOpne;
 
-  gear.classList.toggle("fa-spin");
+  document.querySelector(".gear").classList.toggle("fa-spin");
 });
+
+//switch colors
+colorsList.forEach((li) => {
+  li.addEventListener("click", (e) => {
+    colorsList.forEach((element) => {
+      element.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    //set main color
+    document.documentElement.style.setProperty(
+      "--main-color",
+      `${e.target.dataset.color}`
+    );
+    localStorage.setItem("color_option", `${e.target.dataset.color}`);
+  });
+});
+
+//landing page
 
 const landingPage = document.querySelector(".landing-page");
 

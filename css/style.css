@@ -1,5 +1,9 @@
+*{
+  box-sizing: border-box;
+}
+
 :root {
-  --main-color: #e84118;
+  --main-color: #ea445a;
 }
 body {
   font-family: "Open Sans", sans-serif;
@@ -157,7 +161,7 @@ header ul li a:hover {
   padding: 5px;
   position: fixed;
   color: var(--main-color);
-  top: 50%;
+  top: 30%;
   left: 0;
   transform: translateY(-50%);
   background-color: #fff;
@@ -166,7 +170,51 @@ header ul li a:hover {
   transition: 1s;
   z-index: 101;
 }
-.settings-box .settings-container {
+.settings-box .option-box {
+  padding: 10px;
+  margin: 10px;
+  background-color: #eee;
+  text-align: center;
+}
+.settings-box .option-box h4 {
+  margin: 0;
+  color: #666;
+}
+.settings-box .option-box .colors-list {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.settings-box .option-box .colors-list li {
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  display: inline-block;
+  transition: .5s;
+}
+.settings-box .option-box .colors-list .active {
+  opacity: 1;
+  border: 3px solid #fff;
+  width: 25px;
+  height: 25px;
+}
+.settings-box .option-box .colors-list li:first-child {
+  background-color: #ea445a;
+}
+.settings-box .option-box .colors-list li:nth-child(2) {
+  background-color: #74f0ed;
+}
+.settings-box .option-box .colors-list li:nth-child(3) {
+  background-color: #5ac3b0;
+}
+.settings-box .option-box .colors-list li:nth-child(4) {
+  background-color: #f7cd46;
+}
+.settings-box .option-box .colors-list li:last-child {
+  background-color: #a0aecd;
 }
 
 /* End Setting Box */
