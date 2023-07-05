@@ -1,3 +1,25 @@
+//Settings
+
+let settingsBox = document.querySelector(".settings-box");
+let gearBox = document.querySelector(".gear-box");
+let isOpne = false;
+
+//show and hide settings menu
+gearBox.addEventListener("click", (e) => {
+  let gear = document.querySelector(".gear");
+  if (!isOpne) {
+    settingsBox.style.left = 0;
+    gearBox.style.left = "200px";
+  } else {
+    settingsBox.style.left = "-251px";
+    gearBox.style.left = 0;
+  }
+  //toggle open statue
+  isOpne = !isOpne;
+
+  gear.classList.toggle("fa-spin");
+});
+
 const landingPage = document.querySelector(".landing-page");
 
 // Get array of images
@@ -36,18 +58,3 @@ setRandomImage();
 
 // Change background image url
 setInterval(setRandomImage, 10000);
-
-let settingsBoxg = document.querySelector(".settings-box");
-let gear = document.querySelector(".gear");
-let isOpne = false;
-
-gear.addEventListener("click", (e) => {
-  if (!isOpne) {
-    settingsBoxg.style.left = 0;
-    gear.style.left = "200px";
-  } else {
-    settingsBoxg.style.left = "-251px";
-    gear.style.left = 0;
-  }
-  isOpne = !isOpne;
-});

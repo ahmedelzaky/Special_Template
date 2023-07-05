@@ -152,7 +152,7 @@ header ul li a:hover {
   left: -250px;
   transition: 1s;
 }
-.settings-box .gear {
+.settings-box .gear-box {
   font-size: 25px;
   padding: 5px;
   position: fixed;
