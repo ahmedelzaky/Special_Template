@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -44,6 +44,7 @@ body {
   background-image: url("../images/slide01.jpg");
   background-size: cover;
   color: white;
+  transition: 1s;
 }
 .landing-page .overlay {
   background-color: #0000004b;
@@ -193,7 +194,7 @@ header ul li a:hover {
   cursor: pointer;
   opacity: 0.5;
   display: inline-block;
-  transition: .5s;
+  transition: 0.5s;
 }
 .settings-box .option-box .colors-list .active {
   opacity: 1;
