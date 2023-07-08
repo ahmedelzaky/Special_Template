@@ -44,7 +44,7 @@ body {
   background-image: url("../images/slide01.jpg");
   background-size: cover;
   color: white;
-  transition: 1s;
+  transition: 2s;
 }
 .landing-page .overlay {
   background-color: #0000004b;
@@ -216,6 +216,28 @@ header ul li a:hover {
 }
 .settings-box .option-box .colors-list li:last-child {
   background-color: #a0aecd;
+}
+.settings-box .option-box button {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 70px;
+  padding: 5px;
+  font-size: 14px;
+  background-color: #3333336f;
+  color: white;
+  opacity: 0.5;
+  background-color: var(--main-color);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.settings-box .option-box button.active {
+  opacity: 1;
+  background-color: var(--main-color);
+}
+.settings-box .option-box .yes {
+}
+.settings-box .option-box .no {
 }
 
 /* End Setting Box */
