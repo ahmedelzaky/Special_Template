@@ -23,12 +23,18 @@ let isOpne = false;
 
 //show and hide settings menu
 gearBox.addEventListener("click", (e) => {
+  let overlay = document.createElement("div");
+  overlay.className = "popup-overlay";
+  overlay.style.zIndex = "99";
+
   if (!isOpne) {
     settingsBox.style.left = 0;
     gearBox.style.left = "240px";
+    document.body.appendChild(overlay);
   } else {
     settingsBox.style.left = "-251px";
     gearBox.style.left = 0;
+    document.body.removeChild(document.querySelector(".popup-overlay"));
   }
   //toggle open statue
   isOpne = !isOpne;
@@ -114,10 +120,10 @@ async function setRandomImage() {
     //   }
     //   localStorage.setItem("background-url", `url(${img.url})`);
     //   if (!img.ok) {
-        //   Set a random image from the array
-        let randomNum = Math.floor(Math.random() * imgsArray.length);
-        landingPage.style.backgroundImage = `url(${imgsArray[randomNum]})`;
-        localStorage.setItem("background-url", `url(${imgsArray[randomNum]})`);
+    //   Set a random image from the array
+    let randomNum = Math.floor(Math.random() * imgsArray.length);
+    landingPage.style.backgroundImage = `url(${imgsArray[randomNum]})`;
+    localStorage.setItem("background-url", `url(${imgsArray[randomNum]})`);
     //   }
     // } catch (error) {
     //   console.log(error);
@@ -129,3 +135,86 @@ setRandomImage();
 
 // Change background image url
 setInterval(setRandomImage, 5000);
+
+// change progress form 0 to it is value
+const progressBars = document.querySelectorAll(
+  ".skills .skill-box .skill-progress span"
+);
+
+let observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.width = `${entry.target.dataset.progress}`;
+    }
+  });
+});
+
+progressBars.forEach((el) => {
+  observer.observe(el);
+});
+
+// let aboutUs = document.querySelector(".about-us span");
+// console.log(aboutUs);
+
+// let gearObserver = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       gearBox.style.backgroundColor = "#333";
+//     } else {
+//       gearBox.style.backgroundColor = "#fff";
+//     }
+//   });
+// });
+
+// gearObserver.observe(aboutUs);
+
+//create popup with the imge
+
+let ourGallery = document.querySelectorAll(".gallery img");
+
+ourGallery.forEach((img) => {
+  img.addEventListener("click", (e) => {
+    //create Overlay Element
+    let overlay = document.createElement("div");
+    overlay.className = "popup-overlay";
+
+    document.body.appendChild(overlay);
+
+    //create the popup box
+    let popupBox = document.createElement("div");
+    popupBox.className = "popup-box";
+
+    if (img.alt !== null) {
+      //create heading
+      let imgHeading = document.createElement("h3");
+      let imgText = document.createTextNode(img.alt);
+
+      imgHeading.appendChild(imgText);
+
+      popupBox.appendChild(imgHeading);
+    }
+
+    //create the img
+    let popupImg = document.createElement("img");
+    popupImg.src = img.src;
+
+    popupBox.appendChild(popupImg);
+    document.body.appendChild(popupBox);
+
+    //create the close span
+    let closeButton = document.createElement("span");
+    let closeButtonText = document.createTextNode("x");
+
+    closeButton.appendChild(closeButtonText);
+
+    closeButton.className = "close-button";
+
+    popupBox.appendChild(closeButton);
+
+    //close popup and remove overlay
+    closeButton.addEventListener("click", (e) => {
+      e.target.parentNode.remove();
+      document.body.removeChild(document.querySelector(".popup-overlay"));
+    });
+  });
+});
