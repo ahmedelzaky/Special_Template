@@ -184,7 +184,7 @@ ourGallery.forEach((img) => {
     let popupBox = document.createElement("div");
     popupBox.className = "popup-box";
 
-    if (img.alt !== null) {
+    if (img.alt !== "") {
       //create heading
       let imgHeading = document.createElement("h3");
       let imgText = document.createTextNode(img.alt);
