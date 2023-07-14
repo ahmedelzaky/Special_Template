@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/webicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="./css/all.min.css" />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
+    <title>Special Design</title>
   </head>
   <body>
     <!-- Start Setting Box -->
@@ -28,17 +29,33 @@
             <li data-color="#74f0ed"></li>
             <li data-color="#5ac3b0"></li>
             <li data-color="#f7cd46"></li>
-            <li data-color="#ea445a"></li>
+            <li data-color="#03A9F4"></li>
           </ul>
         </div>
-        <div class="option-box">
+        <div class="option-box random-background">
           <h4>Random Background</h4>
+          <button class="yes active">Yes</button>
+          <button class="no">No</button>
+        </div>
+        <div class="option-box show-bullets ">
+          <h4>Show Bullets</h4>
           <button class="yes active">Yes</button>
           <button class="no">No</button>
         </div>
       </div>
     </div>
     <!-- End Setting Box -->
+
+    <!-- Start Nav Bullets -->
+    <div class="nav-bullets">
+      <a href="#about-us" data-section="about" class="bullet"></a>
+      <a href="#skills" data-section="skills" class="bullet"></a>
+      <a href="#gallery" data-section="gallery" class="bullet"></a>
+      <a href="#timeline" data-section="timeline" class="bullet"></a>
+      <a href="#features" data-section="features" class="bullet"></a>
+      <a href="#testimonials" data-section="testimonials" class="bullet"></a>
+    </div>
+    <!-- End Nav Bullets -->
 
     <!-- Start Landing Page -->
     <div class="landing-page">
@@ -47,7 +64,7 @@
         <header>
           <div class="logo">Special Design</div>
           <ul>
-            <li><a href="" class="active"> About </a></li>
+            <li><a href="#about-us"> About </a></li>
             <li><a href="#skills"> Skills </a></li>
             <li><a href="#gallery"> Gallery </a></li>
             <li><a href="#timeline"> Timeline </a></li>
@@ -69,7 +86,7 @@
 
     <!-- Start About Us -->
     <div class="container">
-      <div class="about-us">
+      <div class="about-us" id="about-us">
         <div class="info-box">
           <h2>About Us</h2>
           <p>
@@ -219,6 +236,109 @@
       </div>
     </div>
     <!-- End Timeline -->
+
+    <!-- Start Feautures -->
+    <div class="features" id="features">
+      <h2>Our Features</h2>
+      <div class="container">
+        <div class="feat-box">
+          <img src="images/icon-01.png" alt="" />
+          <h4>Development</h4>
+          <p>
+            We are professional marketeers, we will do anything you imagine in
+            no time
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="images/icon-02.png" alt="" />
+          <h4>Marketing</h4>
+          <p>
+            We are professional marketeers, we will do anything you imagine in
+            no time
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="images/icon-03.png" alt="" />
+          <h4>Hosting</h4>
+          <p>
+            We are professional marketeers, we will do anything you imagine in
+            no time
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="images/icon-04.png" alt="" />
+          <h4>Mobile Develope</h4>
+          <p>
+            We are professional marketeers, we will do anything you imagine in
+            no time
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="images/icon-05.png" alt="" />
+          <h4>Cloud and Servers</h4>
+          <p>
+            We are professional marketeers, we will do anything you imagine in
+            no time
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="images/icon-06.png" alt="" />
+          <h4>Seo</h4>
+          <p>
+            We are professional marketeers, we will do anything you imagine in
+            no time
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- End Feautures -->
+
+    <!-- Start Testimonials -->
+    <div class="testimonials" id="testimonials">
+      <div class="container">
+        <h2>Testimonials</h2>
+        <div class="ts-content">
+          <div class="ts-box">
+            <p>
+              Iam very happy with the product its amazing and i recieve it very
+              fast and the price was amazing.
+            </p>
+            <div class="person-info">
+              <div class="img-box">
+                <img src="https://placehold.it/80/DDD" alt="" />
+              </div>
+              <div class="text">
+                <h4>Ahmed Mosaad</h4>
+                <p>CEO At Company</p>
+              </div>
+            </div>
+          </div>
+          <div class="ts-box">
+            <p>
+              Iam very happy with the product its amazing and i recieve it very
+              fast and the price was amazing.
+            </p>
+            <div class="person-info">
+              <img src="https://placehold.it/80/DDD" alt="" />
+              <h4>Mohamed Ibrahim</h4>
+              <p>CEO At Company</p>
+            </div>
+          </div>
+          <div class="ts-box">
+            <p>
+              Iam very happy with the product its amazing and i recieve it very
+              fast and the price was amazing.
+            </p>
+            <div class="person-info">
+              <img src="https://placehold.it/80/DDD" alt="" />
+              <h4>Sherief Ashraf</h4>
+              <p>CEO At Company</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Testimonials -->
 
     <script src="js/all.min.js"></script>
     <script src="js/main.js"></script>

@@ -4,9 +4,25 @@
 
 :root {
   --main-color: #a0aecd;
+  --section-padding: 80px 0;
 }
 html {
   scroll-behavior: smooth;
+}
+/* scroll bar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* scroll bar Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* scroll bar Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  opacity: 0.5;
 }
 body {
   font-family: "Open Sans", sans-serif;
@@ -221,14 +237,14 @@ header ul li a:hover {
   background-color: #f7cd46;
 }
 .settings-box .option-box .colors-list li:last-child {
-  background-color: #ea445a;
+  background-color: #03a9f4;
 }
 .settings-box .option-box button {
   margin-top: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   width: 70px;
-  padding: 5px;
+  padding: 3px;
   font-size: 14px;
   background-color: #3333336f;
   color: white;
@@ -242,9 +258,61 @@ header ul li a:hover {
   background-color: var(--main-color);
 }
 /* End Setting Box */
+
+/* Start Nav bullets */
+.nav-bullets {
+  padding: 10px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  position: fixed;
+  z-index: 5;
+}
+.nav-bullets .bullet {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 10px 0;
+  border: 3px solid var(--main-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav-bullets .bullet::before {
+  display: none;
+  position: absolute;
+  content: attr(data-section);
+  background-color: var(--main-color);
+  color: white;
+  width: 100px;
+  left: -115px;
+  padding: 3px 0;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-bullets .bullet::after {
+  display: none;
+  position: absolute;
+  content: "";
+  color: white;
+  border: 10px solid var(--main-color);
+  border-color: transparent transparent transparent var(--main-color);
+  left: -13px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-bullets .bullet:hover::after,
+.nav-bullets .bullet:hover::before {
+  display: block;
+}
+/* End Nav bullets */
+
 /*  Start About Us  */
 .about-us {
-  padding: 50px 0;
+  padding: var(--section-padding);
   display: flex;
   flex-wrap: wrap;
 }
@@ -281,7 +349,7 @@ header ul li a:hover {
 /*  End About Us  */
 /* start Our Skills  */
 .skills {
-  padding: 50px 0;
+  padding: var(--section-padding);
   background-color: #eee;
   display: flex;
 }
@@ -337,7 +405,7 @@ header ul li a:hover {
 
 /* Start Gallery */
 .gallery {
-  padding: 50px 0;
+  padding: var(--section-padding);
 }
 .gallery h2 {
   font-weight: bold;
@@ -411,7 +479,7 @@ header ul li a:hover {
 
 /* Start Timeline */
 .timeline {
-  padding: 50px 0;
+  padding: var(--section-padding);
   background-color: #eee;
   display: flex;
 }
@@ -503,3 +571,99 @@ header ul li a:hover {
   left: -20px;
 }
 /* end Timeline */
+
+/* Start Feautures */
+
+.features {
+  padding: var(--section-padding);
+}
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-row-gap: 50px;
+  grid-column-gap: 40px;
+}
+.features h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 50px;
+  text-align: center;
+}
+.features .feat-box {
+  text-align: center;
+}
+.features .feat-box h4 {
+  font-size: 22px;
+  margin: 15px 0 40px;
+  position: relative;
+}
+.features .feat-box h4::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 80px;
+  background-color: var(--main-color);
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50px;
+}
+.features .feat-box p {
+  line-height: 1.6;
+  color: #4f4c4c;
+  width: 90%;
+  margin: 0 auto;
+}
+.features .feat-box img {
+  width: 150px;
+}
+/* End Feautures */
+
+/* Start testimonials */
+.testimonials {
+  padding: var(--section-padding);
+  margin-top: 30px;
+  background: linear-gradient(90deg, var(--main-color) 50%, #333 50%);
+}
+.testimonials h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 0 50px;
+  /* text-align: center; */
+}
+.testimonials .ts-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-row-gap: 30px;
+  grid-column-gap: 20px;
+}
+.testimonials .ts-content .ts-box {
+  background-color: #ccc;
+  padding: 20px;
+}
+.testimonials .ts-content .ts-box > p {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #707070;
+  font-style: italic;
+}
+.testimonials .ts-content .ts-box .person-info {
+  overflow: hidden;
+}
+.testimonials .ts-content .ts-box .person-info img {
+  border-radius: 50%;
+  margin-right: 20px;
+  float: left;
+}
+.testimonials .ts-content .ts-box .person-info h4 {
+  margin: 19px 0 5px 0;
+}
+
+.testimonials .ts-content .ts-box .person-info p {
+  color: #707070;
+  margin: 0;
+}
+
+/* End testimonials */

@@ -60,7 +60,9 @@ colorsList.forEach((li) => {
 
 // random background option
 
-const buttons = document.querySelectorAll(".settings-box .option-box button");
+const buttons = document.querySelectorAll(
+  ".settings-box .random-background  button"
+);
 let stat = localStorage.getItem("background-statue");
 const landingPage = document.querySelector(".landing-page");
 
@@ -79,6 +81,7 @@ if (stat != null) {
     }
   });
 }
+
 // add Event Listener for background options
 buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -88,6 +91,46 @@ buttons.forEach((btn) => {
     e.target.classList.add("active");
     stat = e.target.classList.contains("yes");
     localStorage.setItem("background-statue", stat);
+  });
+});
+
+// bullets option
+
+const buttonsBullets = document.querySelectorAll(
+  ".settings-box .show-bullets  button"
+);
+const Bullets = document.querySelector(".nav-bullets");
+
+let statBullets = localStorage.getItem("bullets-statue");
+
+// check stat in local storge value
+if (statBullets != null) {
+  buttonsBullets.forEach((btn) => {
+    btn.classList.remove("active");
+
+    if (statBullets == "true" && btn.classList.contains("yes")) {
+      btn.classList.add("active");
+      Bullets.style.display = "block";
+    }
+    if (statBullets == "false" && btn.classList.contains("no")) {
+      btn.classList.add("active");
+      Bullets.style.display = "none";
+    }
+  });
+}
+
+// add Event Listener for background options
+buttonsBullets.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    buttonsBullets.forEach((btn) => {
+      btn.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    statBullets = e.target.classList.contains("yes");
+    localStorage.setItem("bullets-statue", statBullets);
+    statBullets
+      ? (Bullets.style.display = "block")
+      : (Bullets.style.display = "none");
   });
 });
 
