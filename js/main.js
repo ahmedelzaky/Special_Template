@@ -94,12 +94,19 @@ buttons.forEach((btn) => {
 //landing page
 
 // Get array of images
-let imgsArray = [
+const imgsArray = [
   "./images/slide01.jpg",
   "./images/slide02.jpg",
   "./images/slide03.jpg",
   "./images/slide04.jpg",
   "./images/slide05.jpg",
+];
+const imgsArrayMobile = [
+  "./images/slide01-mobile.jpg",
+  "./images/slide02-mobile.jpg",
+  "./images/slide03-mobile.jpg",
+  "./images/slide04-mobile.jpg",
+  "./images/slide05-mobile.jpg",
 ];
 
 // Varible to control interval
@@ -121,9 +128,18 @@ async function setRandomImage() {
     //   localStorage.setItem("background-url", `url(${img.url})`);
     //   if (!img.ok) {
     //   Set a random image from the array
-    let randomNum = Math.floor(Math.random() * imgsArray.length);
-    landingPage.style.backgroundImage = `url(${imgsArray[randomNum]})`;
-    localStorage.setItem("background-url", `url(${imgsArray[randomNum]})`);
+    if (window.innerWidth > 768) {
+      let randomNum = Math.floor(Math.random() * imgsArray.length);
+      landingPage.style.backgroundImage = `url(${imgsArray[randomNum]})`;
+      localStorage.setItem("background-url", `url(${imgsArray[randomNum]})`);
+    } else {
+      let randomNum = Math.floor(Math.random() * imgsArrayMobile.length);
+      landingPage.style.backgroundImage = `url(${imgsArrayMobile[randomNum]})`;
+      localStorage.setItem(
+        "background-url",
+        `url(${imgsArrayMobile[randomNum]})`
+      );
+    }
     //   }
     // } catch (error) {
     //   console.log(error);

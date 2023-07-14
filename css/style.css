@@ -3,7 +3,10 @@
 }
 
 :root {
-  --main-color: #ea445a;
+  --main-color: #a0aecd;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   font-family: "Open Sans", sans-serif;
@@ -48,7 +51,7 @@ body {
   background-image: url("../images/slide01.jpg");
   background-size: cover;
   color: white;
-  transition: 2s;
+  transition: all 2s;
 }
 .landing-page .overlay {
   background-color: #0000004b;
@@ -206,7 +209,7 @@ header ul li a:hover {
   height: 25px;
 }
 .settings-box .option-box .colors-list li:first-child {
-  background-color: #ea445a;
+  background-color: #a0aecd;
 }
 .settings-box .option-box .colors-list li:nth-child(2) {
   background-color: #74f0ed;
@@ -218,7 +221,7 @@ header ul li a:hover {
   background-color: #f7cd46;
 }
 .settings-box .option-box .colors-list li:last-child {
-  background-color: #a0aecd;
+  background-color: #ea445a;
 }
 .settings-box .option-box button {
   margin-top: 10px;
@@ -243,6 +246,7 @@ header ul li a:hover {
 .about-us {
   padding: 50px 0;
   display: flex;
+  flex-wrap: wrap;
 }
 .about-us .info-box {
   flex: 1;
@@ -263,9 +267,17 @@ header ul li a:hover {
   text-align: center;
 }
 .about-us .img-box img {
-  width: 350px;
+  width: 300px;
 }
 
+@media (max-width: 768px) {
+  .about-us .info-box h2 {
+    text-align: center;
+  }
+  .about-us .img-box {
+    margin-top: 30px;
+  }
+}
 /*  End About Us  */
 /* start Our Skills  */
 .skills {
@@ -308,6 +320,18 @@ header ul li a:hover {
   top: 0;
   height: 100%;
   transition: all 3s;
+}
+@media (max-width: 768px) {
+  .skills .skill-box .skill-name {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .skills .skill-box {
+    flex-direction: column;
+  }
+  .skills .skill-box .skill-progress {
+    width: 100%;
+  }
 }
 /* End Our Skills  */
 
@@ -377,6 +401,11 @@ header ul li a:hover {
   border-radius: 50%;
   font-weight: bold;
   font-family: Arial, Tahoma;
+}
+@media (max-width: 768px) {
+  .popup-box {
+    width: 80%;
+  }
 }
 /* End Gallery */
 
