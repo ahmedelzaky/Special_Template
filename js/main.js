@@ -364,7 +364,6 @@ document.body.addEventListener("click", (e) => {
     !e.target.parentElement.classList.contains("menu") &&
     !e.target.parentElement.classList.contains("links-container")
   ) {
-    console.log(e.target.parentElement);
     menuButton.classList.toggle("open");
     menu.classList.toggle("open");
     isMenuOpen = !isMenuOpen;
