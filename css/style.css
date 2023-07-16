@@ -152,17 +152,20 @@ header ul li a:hover {
     padding: 10px 0;
   }
   header .links-container .menu {
-    display: none;
-  }
-  header .links-container ul.open {
+    height: 0;
+    overflow: hidden;
     position: absolute;
     display: flex;
     flex-direction: column;
     background-color: #222020d9;
-    width: 60%;
-    top: 40px;
+    width: 70%;
+    top: 38px;
     right: 0;
+  }
+  header .links-container ul.open {
+    transition: 1s;
     padding: 10px;
+    height: 190px;
   }
   header .links-container ul li {
     width: 100%;
