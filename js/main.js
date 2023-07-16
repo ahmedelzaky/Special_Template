@@ -114,7 +114,7 @@ if (statBullets != null) {
   });
 }
 
-// add Event Listener for background options
+// add Event Listener for bullets options
 buttonsBullets.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     handleActive(e);
@@ -124,6 +124,43 @@ buttonsBullets.forEach((btn) => {
     statBullets
       ? (Bullets.style.display = "block")
       : (Bullets.style.display = "none");
+  });
+});
+
+//fixed header option
+let header = document.querySelector(".landing-page .container-h");
+
+const buttonsHeader = document.querySelectorAll(
+  ".settings-box .fixed-header  button"
+);
+
+let statHeader = localStorage.getItem("header-statue");
+
+// check stat in local storge value
+if (statHeader != null) {
+  buttonsHeader.forEach((btn) => {
+    btn.classList.remove("active");
+
+    if (statHeader == "true" && btn.classList.contains("yes")) {
+      btn.classList.add("active");
+      header.style.position = "fixed";
+    } else if (statHeader == "false" && btn.classList.contains("no")) {
+      btn.classList.add("active");
+      header.style.position = "relative";
+    }
+  });
+}
+
+// add Event Listener for fixed header options
+buttonsHeader.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    handleActive(e);
+
+    statHeader = e.target.classList.contains("yes");
+    localStorage.setItem("header-statue", statHeader);
+    statHeader
+      ? (header.style.position = "fixed")
+      : (header.style.position = "relative");
   });
 });
 
@@ -205,7 +242,6 @@ progressBars.forEach((el) => {
 
 // change header background color
 let skills = document.querySelector(".skills");
-let header = document.querySelector(".landing-page .container-h");
 
 let skillsObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -299,7 +335,10 @@ function handleActive(ev) {
 //Reset Button
 
 document.querySelector(".reset-options").onclick = function () {
-  localStorage.clear();
+  localStorage.removeItem("color_option");
+  localStorage.removeItem("background-url");
+  localStorage.removeItem("bullets-statue");
+  localStorage.removeItem("background-statue");
   window.location.reload();
 };
 
