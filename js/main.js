@@ -310,7 +310,6 @@ document.body.addEventListener("click", (e) => {
     isMenuOpen = !isMenuOpen;
   }
   //close setting box  if you clicked outside it
-  console.log(e.target);
 
   if (isOpne && e.target.classList.contains("popup-overlay")) {
     settingsBox.style.left = "-251px";

@@ -391,13 +391,23 @@ header ul li a:hover {
 }
 
 @media (max-width: 768px) {
-  .about-us .info-box h2 {
+  .about-us {
     text-align: center;
   }
   .about-us .img-box {
     margin-top: 30px;
   }
 }
+@media (max-width: 991px) {
+  .about-us {
+    text-align: center;
+    flex-direction: column;
+  }
+  .about-us .img-box {
+    margin-top: 30px;
+  }
+}
+
 /*  End About Us  */
 /* start Our Skills  */
 .skills {
@@ -625,6 +635,22 @@ header ul li a:hover {
   border-color: transparent #fff transparent transparent;
   left: -20px;
 }
+
+@media (max-width: 768px) {
+  .timeline .timeline-content .right,
+  .timeline .timeline-content .left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .timeline .timeline-content .left .content::before,
+  .timeline .timeline-content .right .content::before {
+    display: none;
+  }
+  .timeline .timeline-content .left .content::after,
+  .timeline .timeline-content .right .content::after {
+    display: none;
+  }
+}
 /* end Timeline */
 
 /* Start Feautures */
@@ -751,8 +777,7 @@ header ul li a:hover {
   text-align: center;
 }
 .contact form {
-  /* overflow: hidden; */
-  margin: 800px;
+  overflow: hidden;
   margin: auto;
 }
 .contact form .left {
@@ -797,4 +822,22 @@ header ul li a:hover {
   transition: 0.3s;
 }
 
+@media (max-width: 768px) {
+  .contact form .left {
+    float: none;
+    width: 100%;
+  }
+  .contact form .right {
+    float: none;
+    width: 100%;
+  }
+}
+
 /* End Contact us */
+
+footer {
+  background-color: #333;
+  color: #eee;
+  padding: 20px;
+  text-align: center;
+}
