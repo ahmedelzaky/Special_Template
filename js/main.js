@@ -268,7 +268,7 @@ introObserver.observe(intro);
 
 let headerColor = localStorage.getItem("header-backfround-color");
 
-if (!headerColor == null) {
+if (headerColor != null) {
   header.style.backgroundColor = headerColor;
 }
 
