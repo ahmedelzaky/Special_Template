@@ -203,19 +203,38 @@ progressBars.forEach((el) => {
   observer.observe(el);
 });
 
-// let aboutUs = document.querySelector(".about-us span");
+// change header background color
+let skills = document.querySelector(".skills");
+let header = document.querySelector(".landing-page .container-h");
 
-// let gearObserver = new IntersectionObserver((entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       gearBox.style.backgroundColor = "#333";
-//     } else {
-//       gearBox.style.backgroundColor = "#fff";
-//     }
-//   });
-// });
+let skillsObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      header.style.backgroundColor = "rgb(0,0,0,.7)";
+      localStorage.setItem("header-backfround-color", "rgb(0,0,0,.7)");
+    }
+  });
+});
+skillsObserver.observe(skills);
 
-// gearObserver.observe(aboutUs);
+let intro = document.querySelector(".intro");
+
+let introObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      header.style.backgroundColor = "transparent";
+      localStorage.setItem("header-backfround-color", "transparent");
+    }
+  });
+});
+
+introObserver.observe(intro);
+
+let headerColor = localStorage.getItem("header-backfround-color");
+
+if (!headerColor == null) {
+  header.style.backgroundColor = headerColor;
+}
 
 //create popup with the imge
 

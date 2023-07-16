@@ -77,6 +77,13 @@ body {
   top: 0;
   z-index: 1;
 }
+.landing-page .container-h {
+  position: fixed;
+  z-index: 155;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -104,7 +111,7 @@ header ul {
   display: flex;
 }
 header .logo {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
