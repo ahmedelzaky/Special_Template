@@ -79,7 +79,7 @@ body {
 }
 .landing-page .container-h {
   position: fixed;
-  z-index: 155;
+  z-index: 98;
   width: 100%;
   left: 50%;
   transform: translateX(-50%);

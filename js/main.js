@@ -339,6 +339,8 @@ document.querySelector(".reset-options").onclick = function () {
   localStorage.removeItem("background-url");
   localStorage.removeItem("bullets-statue");
   localStorage.removeItem("background-statue");
+  localStorage.removeItem("header-statue");
+  localStorage.removeItem("background-statue");
   window.location.reload();
 };
 
