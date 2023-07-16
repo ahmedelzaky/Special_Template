@@ -45,10 +45,7 @@ gearBox.addEventListener("click", (e) => {
 //switch colors
 colorsList.forEach((li) => {
   li.addEventListener("click", (e) => {
-    colorsList.forEach((element) => {
-      element.classList.remove("active");
-    });
-    e.target.classList.add("active");
+    handleActive(e);
     //set main color
     document.documentElement.style.setProperty(
       "--main-color",
@@ -75,20 +72,19 @@ if (stat != null) {
 
     if (stat == "true" && btn.classList.contains("yes")) {
       btn.classList.add("active");
-    }
-    if (stat == "false" && btn.classList.contains("no")) {
+    } else if (stat == "false" && btn.classList.contains("no")) {
       btn.classList.add("active");
     }
   });
+} else {
+  stat = true;
+  localStorage.setItem("background-statue", stat);
 }
 
 // add Event Listener for background options
 buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    buttons.forEach((btn) => {
-      btn.classList.remove("active");
-    });
-    e.target.classList.add("active");
+    handleActive(e);
     stat = e.target.classList.contains("yes");
     localStorage.setItem("background-statue", stat);
   });
@@ -111,8 +107,7 @@ if (statBullets != null) {
     if (statBullets == "true" && btn.classList.contains("yes")) {
       btn.classList.add("active");
       Bullets.style.display = "block";
-    }
-    if (statBullets == "false" && btn.classList.contains("no")) {
+    } else if (statBullets == "false" && btn.classList.contains("no")) {
       btn.classList.add("active");
       Bullets.style.display = "none";
     }
@@ -122,10 +117,8 @@ if (statBullets != null) {
 // add Event Listener for background options
 buttonsBullets.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    buttonsBullets.forEach((btn) => {
-      btn.classList.remove("active");
-    });
-    e.target.classList.add("active");
+    handleActive(e);
+
     statBullets = e.target.classList.contains("yes");
     localStorage.setItem("bullets-statue", statBullets);
     statBullets
@@ -190,8 +183,6 @@ async function setRandomImage() {
   }
 }
 
-setRandomImage();
-
 // Change background image url
 setInterval(setRandomImage, 5000);
 
@@ -213,7 +204,6 @@ progressBars.forEach((el) => {
 });
 
 // let aboutUs = document.querySelector(".about-us span");
-// console.log(aboutUs);
 
 // let gearObserver = new IntersectionObserver((entries) => {
 //   entries.forEach((entry) => {
@@ -276,4 +266,58 @@ ourGallery.forEach((img) => {
       document.body.removeChild(document.querySelector(".popup-overlay"));
     });
   });
+});
+
+// Handle Active state
+function handleActive(ev) {
+  ev.target.parentElement.querySelectorAll(".active").forEach((ele) => {
+    ele.classList.remove("active");
+  });
+
+  ev.target.classList.add("active");
+}
+
+//Reset Button
+
+document.querySelector(".reset-options").onclick = function () {
+  localStorage.clear();
+  window.location.reload();
+};
+
+//Toggle Menu
+
+const menuButton = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".menu");
+let isMenuOpen = false;
+
+menuButton.addEventListener("click", (e) => {
+  e.stopPropagation();
+  menuButton.classList.toggle("open");
+  menu.classList.toggle("open");
+  isMenuOpen = !isMenuOpen;
+});
+
+document.body.addEventListener("click", (e) => {
+  //close menu if you clicked outside it
+  if (
+    isMenuOpen &&
+    !e.target.parentElement.classList.contains("menu") &&
+    !e.target.parentElement.classList.contains("links-container")
+  ) {
+    console.log(e.target.parentElement);
+    menuButton.classList.toggle("open");
+    menu.classList.toggle("open");
+    isMenuOpen = !isMenuOpen;
+  }
+  //close setting box  if you clicked outside it
+  console.log(e.target);
+
+  if (isOpne && e.target.classList.contains("popup-overlay")) {
+    settingsBox.style.left = "-251px";
+    gearBox.style.left = 0;
+    document.body.removeChild(document.querySelector(".popup-overlay"));
+    document.querySelector(".gear").classList.toggle("fa-spin");
+
+    isOpne = !isOpne;
+  }
 });

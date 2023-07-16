@@ -31,7 +31,6 @@ body {
 .container {
   margin: auto;
   padding: 0 15px;
-  width: 95%;
 }
 @media (min-width: 576px) {
   /* Small Devices => Landscape Phones */
@@ -95,9 +94,12 @@ header::after {
   height: 1px;
   width: calc(100%);
 }
-header .menu {
+header .menu-toggle {
   display: none;
 }
+/* header .links-container {
+  width: 100%;
+} */
 header ul {
   display: flex;
 }
@@ -142,19 +144,53 @@ header ul li a:hover {
   header {
     padding: 10px 0;
   }
-  header ul {
+  header .links-container .menu {
     display: none;
+  }
+  header .links-container ul.open {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 60%;
+    top: 40px;
+    right: 0;
+    padding: 10px;
+  }
+  header .links-container ul li {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+  header .links-container ul li:hover {
+    border-bottom: 1px solid var(--main-color);
+  }
+  header .links-container ul a {
+    color: var(--main-color);
   }
   header .logo {
     font-size: 16px;
   }
-  header .menu {
+  header .menu-toggle {
     display: block;
     font-size: 30px;
+    text-align: center;
     transition: 0.5s;
   }
-  header .menu:hover {
+  header .menu-toggle.open::before {
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    right: 4px;
+    top: 36px;
+  }
+  header .menu-toggle:hover {
     color: var(--main-color);
+  }
+  .landing-page {
+    background-image: url("../images/slide01-mobile.jpg");
   }
   .landing-page .intro {
     text-align: center;
@@ -257,6 +293,22 @@ header ul li a:hover {
   opacity: 1;
   background-color: var(--main-color);
 }
+
+.settings-box .reset-options {
+  border: none;
+  width: 230px;
+  margin: 10px auto;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: rgb(148, 27, 27);
+  padding: 10px;
+  cursor: pointer;
+}
+.settings-box .reset-options:hover {
+  background-color: rgb(220, 0, 0);
+}
 /* End Setting Box */
 
 /* Start Nav bullets */
@@ -352,6 +404,9 @@ header ul li a:hover {
   padding: var(--section-padding);
   background-color: #eee;
   display: flex;
+}
+.skills .container {
+  width: 100%;
 }
 .skills h2 {
   font-weight: bold;
@@ -667,3 +722,79 @@ header ul li a:hover {
 }
 
 /* End testimonials */
+
+/* Start Contact us */
+.contact {
+  background-image: url(../images/contact.png);
+  padding: var(--section-padding);
+  background-size: cover;
+  position: relative;
+}
+.contact .overlay {
+  background-color: rgb(255, 255, 255, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.contact .container {
+  position: relative;
+  z-index: 2;
+}
+.contact h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 50px;
+  text-align: center;
+}
+.contact form {
+  /* overflow: hidden; */
+  margin: 800px;
+  margin: auto;
+}
+.contact form .left {
+  float: left;
+  width: 49%;
+}
+.contact form .right {
+  float: right;
+  width: 49%;
+}
+.contact form input:not([type="submit"]),
+.contact form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  background-color: rgb(218, 218, 218, 0.19);
+}
+
+.contact form input:not([type="submit"]):focus,
+.contact form textarea:focus {
+  outline: 1px solid var(--main-color);
+}
+.contact form input {
+  height: 40px;
+}
+.contact form textarea {
+  height: 150px;
+}
+.contact form input[type="submit"] {
+  padding: 10px;
+  width: 100%;
+  border-color: transparent;
+  background-color: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+}
+.contact form input:not([type="submit"]):focus::placeholder,
+.contact form textarea:focus::placeholder {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* End Contact us */
