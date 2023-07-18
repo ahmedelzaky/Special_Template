@@ -16,7 +16,7 @@ html {
   height: 40px;
   position: fixed;
   right: 20px;
-  top: 640px;
+  bottom: 20px;
   border-radius: 10px;
   z-index: 4;
 }
