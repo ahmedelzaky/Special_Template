@@ -9,6 +9,25 @@
 html {
   scroll-behavior: smooth;
 }
+
+.scroll-button {
+  background-color: var(--main-color);
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 20px;
+  top: 640px;
+  border-radius: 10px;
+  z-index: 4;
+}
+.scroll-button span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: #fff;
+}
 /* scroll bar width */
 ::-webkit-scrollbar {
   width: 10px;

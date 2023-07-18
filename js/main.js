@@ -379,3 +379,22 @@ document.body.addEventListener("click", (e) => {
     isOpne = !isOpne;
   }
 });
+
+let scrollBtn = document.querySelector(".scroll-button");
+
+window.onscroll = function () {
+  console.log(window.scrollY);
+  if (window.scrollY >= 600) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+scrollBtn.onclick = function () {
+  window.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: "smooth",
+  });
+};
