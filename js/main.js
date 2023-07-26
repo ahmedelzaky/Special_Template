@@ -383,7 +383,6 @@ document.body.addEventListener("click", (e) => {
 let scrollBtn = document.querySelector(".scroll-button");
 
 window.onscroll = function () {
-  console.log(window.scrollY);
   if (window.scrollY >= 600) {
     scrollBtn.style.display = "block";
   } else {
